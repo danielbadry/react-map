@@ -3,12 +3,36 @@ import {
   Marker,
   Popup,
   TileLayer,
+  useMap,
   ZoomControl,
 } from "react-leaflet";
+import { useEffect } from "react";
 import { mapStyles } from "./map.style";
-import type { MapViewProps } from "./map.type";
+import type { MapCenterProps, MapViewProps } from "./map.type";
 
-const MapView = ({ locations, isLoading, error, center }: MapViewProps) => {
+const MapCenter = ({ center }: MapCenterProps) => {
+  const map = useMap();
+
+  useEffect(() => {
+    map.setView(center, map.getZoom(), {
+      animate: true,
+    });
+  }, [center, map]);
+
+  return null;
+};
+
+const MapView = ({
+  locations,
+  isLoading,
+  error,
+  center,
+  filters,
+  categories,
+  filteredCount,
+  onCategoryChange,
+  onLocationQueryChange,
+}: MapViewProps) => {
   return (
     <section style={mapStyles.section}>
       <div style={mapStyles.frame}>
@@ -27,6 +51,7 @@ const MapView = ({ locations, isLoading, error, center }: MapViewProps) => {
               zoomControl={false}
               style={mapStyles.canvas}
             >
+              <MapCenter center={center} />
               <ZoomControl position="bottomright" />
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -52,6 +77,43 @@ const MapView = ({ locations, isLoading, error, center }: MapViewProps) => {
               ))}
             </MapContainer>
 
+            <div style={mapStyles.filters}>
+              <label style={mapStyles.field}>
+                <span style={mapStyles.label}>Filter by category</span>
+                <select
+                  value={filters.category}
+                  onChange={(event) => onCategoryChange(event.target.value)}
+                  style={mapStyles.select}
+                >
+                  <option value="all">All categories</option>
+                  {categories.map((category) => (
+                    <option key={category} value={category}>
+                      Category {category}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label style={mapStyles.field}>
+                <span style={mapStyles.label}>Filter by location</span>
+                <input
+                  type="text"
+                  value={filters.locationQuery}
+                  onChange={(event) =>
+                    onLocationQueryChange(event.target.value)
+                  }
+                  placeholder="Search by title, address, or country"
+                  style={mapStyles.input}
+                />
+              </label>
+            </div>
+
+            <div style={mapStyles.summary}>
+              <p style={mapStyles.summaryTitle}>
+                {filteredCount} location{filteredCount === 1 ? "" : "s"} found.
+              </p>
+            </div>
+
             <div style={mapStyles.grid}>
               {locations.map((location) => (
                 <article
@@ -69,6 +131,12 @@ const MapView = ({ locations, isLoading, error, center }: MapViewProps) => {
                 </article>
               ))}
             </div>
+
+            {filteredCount === 0 ? (
+              <div style={mapStyles.state}>
+                No locations match the selected category and location filter.
+              </div>
+            ) : null}
           </>
         ) : null}
       </div>

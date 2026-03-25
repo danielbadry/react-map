@@ -5,6 +5,11 @@ export const mapStyles: Record<
   | "frame"
   | "canvas"
   | "state"
+  | "filters"
+  | "field"
+  | "label"
+  | "input"
+  | "select"
   | "summary"
   | "summaryTitle"
   | "legend"
@@ -37,6 +42,45 @@ export const mapStyles: Record<
     padding: "32px",
     fontSize: "1rem",
     color: "#425466",
+  },
+  filters: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "16px",
+    padding: "20px",
+    borderTop: "1px solid rgba(16, 32, 48, 0.08)",
+    background: "#fff",
+  },
+  field: {
+    display: "grid",
+    gap: "8px",
+  },
+  label: {
+    fontSize: "0.88rem",
+    fontWeight: 600,
+    color: "#425466",
+  },
+  input: {
+    width: "100%",
+    minHeight: "44px",
+    padding: "0 14px",
+    borderRadius: "12px",
+    border: "1px solid rgba(16, 32, 48, 0.12)",
+    fontSize: "0.95rem",
+    color: "#142230",
+    background: "#f8fbfe",
+    outline: "none",
+  },
+  select: {
+    width: "100%",
+    minHeight: "44px",
+    padding: "0 14px",
+    borderRadius: "12px",
+    border: "1px solid rgba(16, 32, 48, 0.12)",
+    fontSize: "0.95rem",
+    color: "#142230",
+    background: "#f8fbfe",
+    outline: "none",
   },
   summary: {
     display: "flex",

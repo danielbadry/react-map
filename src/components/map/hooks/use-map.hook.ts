@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchMapLocations } from "../api/map.api";
-import type { MapState } from "../types/map.type";
+import type { MapState } from "../map.type";
 
 const initialState: MapState = {
   locations: [],
