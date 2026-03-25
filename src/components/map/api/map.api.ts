@@ -1,4 +1,4 @@
-import type { MapLocation } from "../types/map.type";
+import type { MapLocation } from "../map.type";
 
 export const fetchMapLocations = async (): Promise<MapLocation[]> => {
   const response = await fetch("/data/locations.json");
