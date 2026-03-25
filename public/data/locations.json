@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Vienna Innovation Hub",
+    "description": "A downtown workspace focused on urban mobility and civic technology.",
+    "address": "Mariahilfer Strasse 54",
+    "country": "Austria",
+    "coordinates": {
+      "lat": 48.1984,
+      "lng": 16.3446
+    },
+    "category": "A"
+  },
+  {
+    "title": "Berlin Creative Campus",
+    "description": "A mixed-use campus where design teams prototype location-aware products.",
+    "address": "Oranienburger Strasse 27",
+    "country": "Germany",
+    "coordinates": {
+      "lat": 52.5251,
+      "lng": 13.3889
+    },
+    "category": "B"
+  },
+  {
+    "title": "Prague River Studio",
+    "description": "A studio space for teams building travel and mapping experiences.",
+    "address": "Karoliny Svetle 12",
+    "country": "Czech Republic",
+    "coordinates": {
+      "lat": 50.0838,
+      "lng": 14.4114
+    },
+    "category": "A"
+  },
+  {
+    "title": "Budapest Data Lab",
+    "description": "An analytics lab that validates geospatial insights with field researchers.",
+    "address": "Kossuth Lajos utca 7",
+    "country": "Hungary",
+    "coordinates": {
+      "lat": 47.4936,
+      "lng": 19.0562
+    },
+    "category": "B"
+  }
+]
