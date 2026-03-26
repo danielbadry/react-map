@@ -61,17 +61,17 @@ const MapController = () => {
     setSelectedLocationId(locationId);
   };
 
-  const selectedLocations =
-    selectedLocationId === null
-      ? filteredLocations
-      : filteredLocations.filter((location) => location.id === selectedLocationId);
+  const selectedLocation =
+    filteredLocations.find((location) => location.id === selectedLocationId) ??
+    filteredLocations[0] ??
+    null;
 
   return (
     <MapView
       locations={filteredLocations}
       isLoading={isLoading}
       error={error}
-      center={getMapCenter(selectedLocations)}
+      center={getMapCenter(selectedLocation ? [selectedLocation] : [])}
       filters={filters}
       categories={categories}
       filteredCount={filteredLocations.length}

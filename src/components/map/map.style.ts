@@ -46,7 +46,7 @@ export const mapStyles: Record<
   },
   filters: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
     gap: "16px",
     padding: "20px",
     borderTop: "1px solid rgba(16, 32, 48, 0.08)",
@@ -55,6 +55,7 @@ export const mapStyles: Record<
   field: {
     display: "grid",
     gap: "8px",
+    minWidth: 0,
   },
   label: {
     fontSize: "0.88rem",
@@ -63,6 +64,8 @@ export const mapStyles: Record<
   },
   input: {
     width: "100%",
+    boxSizing: "border-box",
+    minWidth: 0,
     minHeight: "44px",
     padding: "0 14px",
     borderRadius: "12px",
@@ -74,6 +77,8 @@ export const mapStyles: Record<
   },
   select: {
     width: "100%",
+    boxSizing: "border-box",
+    minWidth: 0,
     minHeight: "44px",
     padding: "0 14px",
     borderRadius: "12px",
@@ -122,10 +127,14 @@ export const mapStyles: Record<
     background: "#f8fbfe",
   },
   card: {
+    display: "flex",
+    flexDirection: "column",
     padding: "18px",
+    paddingBottom: "24px",
     borderRadius: "18px",
     border: "1px solid rgba(16, 32, 48, 0.08)",
     background: "#fff",
+    minHeight: "100%",
   },
   badge: {
     display: "inline-flex",
@@ -144,8 +153,14 @@ export const mapStyles: Record<
     lineHeight: 1.5,
   },
   button: {
-    marginTop: "14px",
+    marginTop: "auto",
+    marginBottom: "6px",
+    alignSelf: "flex-start",
     minHeight: "40px",
+    minWidth: "96px",
+    justifyContent: "center",
+    display: "inline-flex",
+    alignItems: "center",
     padding: "0 14px",
     borderRadius: "10px",
     fontWeight: 600,
