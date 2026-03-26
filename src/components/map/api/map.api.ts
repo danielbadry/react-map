@@ -1,3 +1,4 @@
+import { getLocationId } from "../map.helper";
 import type { MapLocation } from "../map.type";
 
 export const fetchMapLocations = async (): Promise<MapLocation[]> => {
@@ -7,5 +8,10 @@ export const fetchMapLocations = async (): Promise<MapLocation[]> => {
     throw new Error("Unable to load map locations.");
   }
 
-  return (await response.json()) as MapLocation[];
+  const locations = (await response.json()) as Omit<MapLocation, "id">[];
+
+  return locations.map((location) => ({
+    ...location,
+    id: getLocationId(location),
+  }));
 };

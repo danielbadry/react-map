@@ -6,9 +6,30 @@ import {
   useMap,
   ZoomControl,
 } from "react-leaflet";
-import { useEffect } from "react";
-import { mapStyles } from "./map.style";
-import type { MapCenterProps, MapViewProps } from "./map.type";
+import { useEffect, useRef } from "react";
+import L from "leaflet";
+import { getButtonStyle, mapStyles } from "./map.style";
+import type {
+  MapCenterProps,
+  MapViewProps,
+  MarkerPopupControllerProps,
+} from "./map.type";
+
+const defaultIcon = new L.Icon.Default();
+const activeIcon = new L.DivIcon({
+  className: "custom-map-marker",
+  html: `
+    <div style="position:relative;width:28px;height:40px;filter:drop-shadow(0 8px 16px rgba(13,99,200,0.28));">
+      <svg width="28" height="40" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M14 39C14 39 26 25.4 26 14C26 7.37258 20.6274 2 14 2C7.37258 2 2 7.37258 2 14C2 25.4 14 39 14 39Z" fill="#0D63C8" stroke="#FFFFFF" stroke-width="3"/>
+        <circle cx="14" cy="14" r="4.5" fill="#FFFFFF"/>
+      </svg>
+    </div>
+  `,
+  iconSize: [28, 40],
+  iconAnchor: [14, 40],
+  popupAnchor: [0, -36],
+});
 
 const MapCenter = ({ center }: MapCenterProps) => {
   const map = useMap();
@@ -22,6 +43,25 @@ const MapCenter = ({ center }: MapCenterProps) => {
   return null;
 };
 
+const MarkerPopupController = ({
+  selectedLocationId,
+  markerRefs,
+}: MarkerPopupControllerProps) => {
+  useEffect(() => {
+    if (!selectedLocationId) {
+      return;
+    }
+
+    const marker = markerRefs.current[selectedLocationId];
+
+    if (marker) {
+      marker.openPopup();
+    }
+  }, [selectedLocationId, markerRefs]);
+
+  return null;
+};
+
 const MapView = ({
   locations,
   isLoading,
@@ -30,9 +70,15 @@ const MapView = ({
   filters,
   categories,
   filteredCount,
+  hoveredLocationId,
+  selectedLocationId,
   onCategoryChange,
   onLocationQueryChange,
+  onLocationHover,
+  onLocationSelect,
 }: MapViewProps) => {
+  const markerRefs = useRef<Record<string, L.Marker | null>>({});
+
   return (
     <section style={mapStyles.section}>
       <div style={mapStyles.frame}>
@@ -52,6 +98,10 @@ const MapView = ({
               style={mapStyles.canvas}
             >
               <MapCenter center={center} />
+              <MarkerPopupController
+                selectedLocationId={selectedLocationId}
+                markerRefs={markerRefs}
+              />
               <ZoomControl position="bottomright" />
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -59,11 +109,25 @@ const MapView = ({
               />
               {locations.map((location) => (
                 <Marker
-                  key={`${location.title}-${location.address}`}
+                  key={location.id}
+                  ref={(marker) => {
+                    markerRefs.current[location.id] = marker;
+                  }}
+                  icon={
+                    location.id === selectedLocationId ||
+                    location.id === hoveredLocationId
+                      ? activeIcon
+                      : defaultIcon
+                  }
                   position={[
                     location.coordinates.lat,
                     location.coordinates.lng,
                   ]}
+                  eventHandlers={{
+                    click: () => onLocationSelect(location.id),
+                    mouseover: () => onLocationHover(location.id),
+                    mouseout: () => onLocationHover(null),
+                  }}
                 >
                   <Popup>
                     <strong>{location.title}</strong>
@@ -117,8 +181,10 @@ const MapView = ({
             <div style={mapStyles.grid}>
               {locations.map((location) => (
                 <article
-                  key={`${location.title}-${location.country}`}
+                  key={location.id}
                   style={mapStyles.card}
+                  onMouseEnter={() => onLocationHover(location.id)}
+                  onMouseLeave={() => onLocationHover(null)}
                 >
                   <span style={mapStyles.badge}>
                     Category {location.category}
@@ -128,6 +194,13 @@ const MapView = ({
                   <p style={mapStyles.meta}>
                     {location.address}, {location.country}
                   </p>
+                  <button
+                    type="button"
+                    style={getButtonStyle(location.id === selectedLocationId)}
+                    onClick={() => onLocationSelect(location.id)}
+                  >
+                    {location.id === selectedLocationId ? "Selected" : "Select"}
+                  </button>
                 </article>
               ))}
             </div>

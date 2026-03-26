@@ -1,9 +1,17 @@
+import type { MutableRefObject } from "react";
+import type { Marker as LeafletMarker } from "leaflet";
+
 export type MapLegendItem = {
   label: string;
 };
 
 export type MapCenterProps = {
   center: [number, number];
+};
+
+export type MarkerPopupControllerProps = {
+  selectedLocationId: string | null;
+  markerRefs: MutableRefObject<Record<string, LeafletMarker | null>>;
 };
 
 export type MapCategoryFilter = "all" | string;
@@ -14,6 +22,7 @@ export type MapFilters = {
 };
 
 export type MapLocation = {
+  id: string;
   title: string;
   description: string;
   address: string;
@@ -36,6 +45,10 @@ export type MapViewProps = MapState & {
   filters: MapFilters;
   categories: string[];
   filteredCount: number;
+  hoveredLocationId: string | null;
+  selectedLocationId: string | null;
   onCategoryChange: (category: string) => void;
   onLocationQueryChange: (value: string) => void;
+  onLocationHover: (locationId: string | null) => void;
+  onLocationSelect: (locationId: string) => void;
 };

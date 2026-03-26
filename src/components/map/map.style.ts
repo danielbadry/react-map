@@ -18,7 +18,8 @@ export const mapStyles: Record<
   | "grid"
   | "card"
   | "badge"
-  | "meta",
+  | "meta"
+  | "button",
   CSSProperties
 > = {
   section: {
@@ -142,4 +143,24 @@ export const mapStyles: Record<
     fontSize: "0.95rem",
     lineHeight: 1.5,
   },
+  button: {
+    marginTop: "14px",
+    minHeight: "40px",
+    padding: "0 14px",
+    borderRadius: "10px",
+    fontWeight: 600,
+    cursor: "pointer",
+    background: "#ffffff",
+  },
+};
+
+export const getButtonStyle = (isSelected: boolean): CSSProperties => {
+  return {
+    ...mapStyles.button,
+    border: isSelected
+      ? "1px solid #0d63c8"
+      : "1px solid rgba(16, 32, 48, 0.12)",
+    background: isSelected ? "#0d63c8" : "#ffffff",
+    color: isSelected ? "#ffffff" : "#142230",
+  };
 };

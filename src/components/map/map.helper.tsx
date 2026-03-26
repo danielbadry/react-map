@@ -34,3 +34,11 @@ export const filterLocations = (
     return matchesCategory && matchesLocation;
   });
 };
+
+export const getLocationId = (
+  location: Omit<MapLocation, "id">,
+): string => {
+  return `${location.title}-${location.address}-${location.country}`
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+};

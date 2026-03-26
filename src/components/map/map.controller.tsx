@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMap } from "./hooks/use-map.hook";
 import { filterLocations, getCategories, getMapCenter } from "./map.helper";
 import type { MapFilters } from "./map.type";
@@ -10,8 +10,34 @@ const MapController = () => {
     category: "all",
     locationQuery: "",
   });
+  const [hoveredLocationId, setHoveredLocationId] = useState<string | null>(null);
+  const [selectedLocationId, setSelectedLocationId] = useState<string | null>(null);
   const filteredLocations = filterLocations(locations, filters);
   const categories = getCategories(locations);
+
+  useEffect(() => {
+    if (filteredLocations.length === 0) {
+      setSelectedLocationId(null);
+      setHoveredLocationId(null);
+      return;
+    }
+
+    const hasSelectedLocation = filteredLocations.some(
+      (location) => location.id === selectedLocationId,
+    );
+
+    if (!hasSelectedLocation) {
+      setSelectedLocationId(filteredLocations[0].id);
+    }
+
+    const hasHoveredLocation = filteredLocations.some(
+      (location) => location.id === hoveredLocationId,
+    );
+
+    if (!hasHoveredLocation) {
+      setHoveredLocationId(null);
+    }
+  }, [filteredLocations, hoveredLocationId, selectedLocationId]);
 
   const handleCategoryChange = (category: string) => {
     setFilters((currentFilters) => ({
@@ -27,17 +53,34 @@ const MapController = () => {
     }));
   };
 
+  const handleLocationHover = (locationId: string | null) => {
+    setHoveredLocationId(locationId);
+  };
+
+  const handleLocationSelect = (locationId: string) => {
+    setSelectedLocationId(locationId);
+  };
+
+  const selectedLocations =
+    selectedLocationId === null
+      ? filteredLocations
+      : filteredLocations.filter((location) => location.id === selectedLocationId);
+
   return (
     <MapView
       locations={filteredLocations}
       isLoading={isLoading}
       error={error}
-      center={getMapCenter(filteredLocations)}
+      center={getMapCenter(selectedLocations)}
       filters={filters}
       categories={categories}
       filteredCount={filteredLocations.length}
+      hoveredLocationId={hoveredLocationId}
+      selectedLocationId={selectedLocationId}
       onCategoryChange={handleCategoryChange}
       onLocationQueryChange={handleLocationQueryChange}
+      onLocationHover={handleLocationHover}
+      onLocationSelect={handleLocationSelect}
     />
   );
 };
