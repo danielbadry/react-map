@@ -83,6 +83,7 @@ npm test
 
 - Add routing so the app can scale beyond a single screen without overloading the root app component.
 - Add configuration to switch map providers more easily, for example between Leaflet/OpenStreetMap, Google Maps, or Mapbox.
+- Explore a more event-driven coordination layer between the map and the list, for example via listeners/pub-sub, so interactive parts could be decoupled further instead of relying only on shared React state.
 - Use `AbortController` in the data-fetching hook to cancel in-flight requests when the component unmounts or a newer request replaces the old one.
 - Extend tests for filtering, selection, and marker/list synchronization behavior.
 - Add responsive polish and a small design system for shared spacing, typography, and interactive states.
