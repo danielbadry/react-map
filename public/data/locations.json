@@ -4,10 +4,7 @@
     "description": "A downtown workspace focused on urban mobility and civic technology.",
     "address": "Mariahilfer Strasse 54",
     "country": "Austria",
-    "coordinates": {
-      "lat": 48.1984,
-      "lng": 16.3446
-    },
+    "coordinates": { "lat": 48.1984, "lng": 16.3446 },
     "category": "A"
   },
   {
@@ -15,10 +12,7 @@
     "description": "A mixed-use campus where design teams prototype location-aware products.",
     "address": "Oranienburger Strasse 27",
     "country": "Germany",
-    "coordinates": {
-      "lat": 52.5251,
-      "lng": 13.3889
-    },
+    "coordinates": { "lat": 52.5251, "lng": 13.3889 },
     "category": "B"
   },
   {
@@ -26,10 +20,7 @@
     "description": "A studio space for teams building travel and mapping experiences.",
     "address": "Karoliny Svetle 12",
     "country": "Czech Republic",
-    "coordinates": {
-      "lat": 50.0838,
-      "lng": 14.4114
-    },
+    "coordinates": { "lat": 50.0838, "lng": 14.4114 },
     "category": "A"
   },
   {
@@ -37,10 +28,400 @@
     "description": "An analytics lab that validates geospatial insights with field researchers.",
     "address": "Kossuth Lajos utca 7",
     "country": "Hungary",
-    "coordinates": {
-      "lat": 47.4936,
-      "lng": 19.0562
-    },
+    "coordinates": { "lat": 47.4936, "lng": 19.0562 },
     "category": "B"
+  },
+  {
+    "title": "Munich Mobility Garage",
+    "description": "A product team testing commuter and navigation concepts for dense cities.",
+    "address": "Landsberger Strasse 110",
+    "country": "Germany",
+    "coordinates": { "lat": 48.1374, "lng": 11.5121 },
+    "category": "A"
+  },
+  {
+    "title": "Salzburg Signals Lab",
+    "description": "A compact research site focused on wayfinding and visitor guidance.",
+    "address": "Schwarzstrasse 18",
+    "country": "Austria",
+    "coordinates": { "lat": 47.8004, "lng": 13.0443 },
+    "category": "B"
+  },
+  {
+    "title": "Linz Prototype Dock",
+    "description": "A workshop for testing dashboards, geodata panels, and route planning tools.",
+    "address": "Landstrasse 31",
+    "country": "Austria",
+    "coordinates": { "lat": 48.3059, "lng": 14.2862 },
+    "category": "A"
+  },
+  {
+    "title": "Graz Mapping Atelier",
+    "description": "A design-focused studio that builds map interfaces for public services.",
+    "address": "Herrengasse 16",
+    "country": "Austria",
+    "coordinates": { "lat": 47.0707, "lng": 15.4395 },
+    "category": "B"
+  },
+  {
+    "title": "Brno Transit Forge",
+    "description": "An engineering hub working on transit overlays and routing visualizations.",
+    "address": "Ceska 20",
+    "country": "Czech Republic",
+    "coordinates": { "lat": 49.1951, "lng": 16.6068 },
+    "category": "A"
+  },
+  {
+    "title": "Ostrava Route Works",
+    "description": "A field operations office focused on logistics maps and industrial sites.",
+    "address": "Nadrazni 42",
+    "country": "Czech Republic",
+    "coordinates": { "lat": 49.8356, "lng": 18.2928 },
+    "category": "B"
+  },
+  {
+    "title": "Bratislava Geo House",
+    "description": "A collaborative workspace where teams validate place-based discovery flows.",
+    "address": "Obchodna 25",
+    "country": "Slovakia",
+    "coordinates": { "lat": 48.1486, "lng": 17.1077 },
+    "category": "A"
+  },
+  {
+    "title": "Kosice Map Foundry",
+    "description": "A regional office building interfaces for geospatial insights and service coverage.",
+    "address": "Hlavna 61",
+    "country": "Slovakia",
+    "coordinates": { "lat": 48.7164, "lng": 21.2611 },
+    "category": "B"
+  },
+  {
+    "title": "Warsaw Urban Grid",
+    "description": "A city-centered team mapping retail movement and neighborhood data.",
+    "address": "Marszalkowska 99",
+    "country": "Poland",
+    "coordinates": { "lat": 52.2298, "lng": 21.0118 },
+    "category": "A"
+  },
+  {
+    "title": "Krakow Atlas Office",
+    "description": "A studio producing tourism and cultural navigation prototypes.",
+    "address": "Grodzka 44",
+    "country": "Poland",
+    "coordinates": { "lat": 50.0614, "lng": 19.9372 },
+    "category": "B"
+  },
+  {
+    "title": "Wroclaw Track Lab",
+    "description": "A test center for route clustering, selection flows, and logistics scenarios.",
+    "address": "Kazimierza Wielkiego 19",
+    "country": "Poland",
+    "coordinates": { "lat": 51.1079, "lng": 17.0385 },
+    "category": "A"
+  },
+  {
+    "title": "Gdansk Dock Maps",
+    "description": "A coastal office focused on shipping routes and public waterfront guides.",
+    "address": "Dlugi Targ 28",
+    "country": "Poland",
+    "coordinates": { "lat": 54.348,
+      "lng": 18.6536 },
+    "category": "B"
+  },
+  {
+    "title": "Ljubljana Civic Routes",
+    "description": "A compact team working on walking maps and municipal wayfinding.",
+    "address": "Copova ulica 5",
+    "country": "Slovenia",
+    "coordinates": { "lat": 46.0514, "lng": 14.506 },
+    "category": "A"
+  },
+  {
+    "title": "Zagreb Street Signals",
+    "description": "A product office experimenting with multimodal city navigation.",
+    "address": "Ilica 49",
+    "country": "Croatia",
+    "coordinates": { "lat": 45.8131, "lng": 15.9775 },
+    "category": "B"
+  },
+  {
+    "title": "Split Coastline Studio",
+    "description": "A satellite office building map tools for tourism and port access.",
+    "address": "Marmontova 9",
+    "country": "Croatia",
+    "coordinates": { "lat": 43.5081, "lng": 16.4392 },
+    "category": "A"
+  },
+  {
+    "title": "Belgrade Node Center",
+    "description": "A regional workspace for route intelligence and location operations.",
+    "address": "Knez Mihailova 12",
+    "country": "Serbia",
+    "coordinates": { "lat": 44.8176, "lng": 20.4573 },
+    "category": "B"
+  },
+  {
+    "title": "Novi Sad Data Yard",
+    "description": "A support office validating point-of-interest and address data sets.",
+    "address": "Zmaj Jovina 14",
+    "country": "Serbia",
+    "coordinates": { "lat": 45.2671, "lng": 19.8335 },
+    "category": "A"
+  },
+  {
+    "title": "Bucharest Grid Works",
+    "description": "A metropolitan hub improving network visualizations and travel planning.",
+    "address": "Calea Victoriei 48",
+    "country": "Romania",
+    "coordinates": { "lat": 44.4378, "lng": 26.0969 },
+    "category": "B"
+  },
+  {
+    "title": "Cluj Route Studio",
+    "description": "A product team focused on regional mapping and delivery coverage.",
+    "address": "Bulevardul Eroilor 16",
+    "country": "Romania",
+    "coordinates": { "lat": 46.7704, "lng": 23.5914 },
+    "category": "A"
+  },
+  {
+    "title": "Timisoara Path Lab",
+    "description": "A mapping office supporting field routing and service area studies.",
+    "address": "Strada Alba Iulia 7",
+    "country": "Romania",
+    "coordinates": { "lat": 45.7489, "lng": 21.2087 },
+    "category": "B"
+  },
+  {
+    "title": "Sofia Mobility Loft",
+    "description": "A lean workspace exploring urban accessibility and smart route design.",
+    "address": "Vitosha Boulevard 34",
+    "country": "Bulgaria",
+    "coordinates": { "lat": 42.6951, "lng": 23.3222 },
+    "category": "A"
+  },
+  {
+    "title": "Plovdiv Wayfinding Base",
+    "description": "A secondary office for navigation, signage, and event map products.",
+    "address": "Knyaz Alexander 18",
+    "country": "Bulgaria",
+    "coordinates": { "lat": 42.1354, "lng": 24.7453 },
+    "category": "B"
+  },
+  {
+    "title": "Athens Route Atelier",
+    "description": "A city studio refining dense urban place discovery and pickup flows.",
+    "address": "Ermou 67",
+    "country": "Greece",
+    "coordinates": { "lat": 37.9839, "lng": 23.7286 },
+    "category": "A"
+  },
+  {
+    "title": "Thessaloniki Harbor Maps",
+    "description": "A regional team focused on coastal access and logistics navigation.",
+    "address": "Tsimiski 88",
+    "country": "Greece",
+    "coordinates": { "lat": 40.6401, "lng": 22.9444 },
+    "category": "B"
+  },
+  {
+    "title": "Skopje Routing Room",
+    "description": "A compact office testing address search and list-to-map interactions.",
+    "address": "Macedonia Street 21",
+    "country": "North Macedonia",
+    "coordinates": { "lat": 41.9981, "lng": 21.4254 },
+    "category": "A"
+  },
+  {
+    "title": "Tirana Path Hub",
+    "description": "A young product team mapping mobility flows and service discovery.",
+    "address": "Rruga Myslym Shyri 14",
+    "country": "Albania",
+    "coordinates": { "lat": 41.3275, "lng": 19.8187 },
+    "category": "B"
+  },
+  {
+    "title": "Podgorica Geo Point",
+    "description": "A support office for route validation and POI enrichment.",
+    "address": "Njegoseva 10",
+    "country": "Montenegro",
+    "coordinates": { "lat": 42.4304, "lng": 19.2594 },
+    "category": "A"
+  },
+  {
+    "title": "Sarajevo Atlas Room",
+    "description": "A studio working on emergency response mapping and route clarity.",
+    "address": "Ferhadija 19",
+    "country": "Bosnia and Herzegovina",
+    "coordinates": { "lat": 43.8596, "lng": 18.4296 },
+    "category": "B"
+  },
+  {
+    "title": "Mostar Bridge Maps",
+    "description": "A cultural tourism team focusing on visitor-oriented map experiences.",
+    "address": "Brace Fejica 28",
+    "country": "Bosnia and Herzegovina",
+    "coordinates": { "lat": 43.3438, "lng": 17.8078 },
+    "category": "A"
+  },
+  {
+    "title": "Zurich Route Circle",
+    "description": "A precision-focused office for premium navigation and mobility flows.",
+    "address": "Bahnhofstrasse 41",
+    "country": "Switzerland",
+    "coordinates": { "lat": 47.3764, "lng": 8.5397 },
+    "category": "B"
+  },
+  {
+    "title": "Geneva Network Lab",
+    "description": "A mapping team supporting international logistics and public services.",
+    "address": "Rue du Rhone 30",
+    "country": "Switzerland",
+    "coordinates": { "lat": 46.2044, "lng": 6.1464 },
+    "category": "A"
+  },
+  {
+    "title": "Basel Signal House",
+    "description": "A border-region office exploring multimodal cross-city routes.",
+    "address": "Freie Strasse 60",
+    "country": "Switzerland",
+    "coordinates": { "lat": 47.5586, "lng": 7.5886 },
+    "category": "B"
+  },
+  {
+    "title": "Milan Flow Studio",
+    "description": "A city team refining retail navigation and pickup point discovery.",
+    "address": "Corso Vittorio Emanuele II 24",
+    "country": "Italy",
+    "coordinates": { "lat": 45.4642, "lng": 9.1916 },
+    "category": "A"
+  },
+  {
+    "title": "Turin Route Garage",
+    "description": "An operations team working on route ranking and travel context.",
+    "address": "Via Roma 72",
+    "country": "Italy",
+    "coordinates": { "lat": 45.0678, "lng": 7.6825 },
+    "category": "B"
+  },
+  {
+    "title": "Venice Lagoon Maps",
+    "description": "A specialist office for waterway access and visitor map products.",
+    "address": "Strada Nova 3912",
+    "country": "Italy",
+    "coordinates": { "lat": 45.4408, "lng": 12.3155 },
+    "category": "A"
+  },
+  {
+    "title": "Bologna Link Studio",
+    "description": "A test site for route cohesion between list, detail, and map views.",
+    "address": "Via Indipendenza 37",
+    "country": "Italy",
+    "coordinates": { "lat": 44.4949, "lng": 11.3426 },
+    "category": "B"
+  },
+  {
+    "title": "Florence Civic Atlas",
+    "description": "A map experience team oriented around walking and heritage routes.",
+    "address": "Via de Calzaiuoli 15",
+    "country": "Italy",
+    "coordinates": { "lat": 43.7698, "lng": 11.2558 },
+    "category": "A"
+  },
+  {
+    "title": "Rome Mobility Node",
+    "description": "A large-city operations hub focusing on route density and selection UX.",
+    "address": "Via del Corso 112",
+    "country": "Italy",
+    "coordinates": { "lat": 41.9029, "lng": 12.4964 },
+    "category": "B"
+  },
+  {
+    "title": "Naples Harbor Studio",
+    "description": "A coastal workspace validating route data near dense historic streets.",
+    "address": "Via Toledo 210",
+    "country": "Italy",
+    "coordinates": { "lat": 40.8517, "lng": 14.2681 },
+    "category": "A"
+  },
+  {
+    "title": "Valencia Route House",
+    "description": "A sunny operations office optimizing place discovery for visitors and locals.",
+    "address": "Carrer de Colon 42",
+    "country": "Spain",
+    "coordinates": { "lat": 39.4699, "lng": -0.3763 },
+    "category": "B"
+  },
+  {
+    "title": "Barcelona Grid Lab",
+    "description": "A design-led team focused on dense-city mobility and list-map interaction.",
+    "address": "Passeig de Gracia 61",
+    "country": "Spain",
+    "coordinates": { "lat": 41.3874, "lng": 2.1686 },
+    "category": "A"
+  },
+  {
+    "title": "Madrid Transit Works",
+    "description": "A platform team supporting route exploration and public transport overlays.",
+    "address": "Gran Via 28",
+    "country": "Spain",
+    "coordinates": { "lat": 40.4168, "lng": -3.7038 },
+    "category": "B"
+  },
+  {
+    "title": "Lisbon Signal Loft",
+    "description": "A location design team refining hill-city route handling and travel context.",
+    "address": "Rua Augusta 144",
+    "country": "Portugal",
+    "coordinates": { "lat": 38.7139, "lng": -9.1394 },
+    "category": "A"
+  },
+  {
+    "title": "Porto Atlas Point",
+    "description": "A smaller office focusing on route readability and service-area maps.",
+    "address": "Rua de Santa Catarina 88",
+    "country": "Portugal",
+    "coordinates": { "lat": 41.1496, "lng": -8.6109 },
+    "category": "B"
+  },
+  {
+    "title": "Amsterdam Route Dock",
+    "description": "A product team mapping cycling, walking, and canal-adjacent experiences.",
+    "address": "Damrak 70",
+    "country": "Netherlands",
+    "coordinates": { "lat": 52.3731, "lng": 4.8922 },
+    "category": "A"
+  },
+  {
+    "title": "Rotterdam Flow Base",
+    "description": "A logistics-oriented office focused on industrial routing and port access.",
+    "address": "Coolsingel 88",
+    "country": "Netherlands",
+    "coordinates": { "lat": 51.9225, "lng": 4.4792 },
+    "category": "B"
+  },
+  {
+    "title": "Utrecht Mobility Studio",
+    "description": "A compact city lab exploring commuter route prioritization.",
+    "address": "Oudegracht 113",
+    "country": "Netherlands",
+    "coordinates": { "lat": 52.0907, "lng": 5.1214 },
+    "category": "A"
+  },
+  {
+    "title": "Brussels Civic Grid",
+    "description": "A central office working on government and public navigation products.",
+    "address": "Rue Neuve 22",
+    "country": "Belgium",
+    "coordinates": { "lat": 50.8503, "lng": 4.3517 },
+    "category": "B"
+  },
+  {
+    "title": "Antwerp Route Works",
+    "description": "A regional team building service discovery and port-side route tools.",
+    "address": "Meir 43",
+    "country": "Belgium",
+    "coordinates": { "lat": 51.2194, "lng": 4.4025 },
+    "category": "A"
   }
 ]
