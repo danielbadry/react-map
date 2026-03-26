@@ -77,7 +77,6 @@ npm test
 - Added selection and hover syncing between map markers and list items to match the requested interaction behavior.
 - Explicitly imported Leaflet marker image assets so default markers work correctly in production and Docker builds.
 - Added `Vitest` for unit testing.
-- Wrote one sample unit test for the map helper logic as a starting point, and the test suite should be extended further.
 
 ## What I Would Improve With More Time
 
