@@ -8,7 +8,7 @@ import {
 } from "react-leaflet";
 import { useEffect, useRef } from "react";
 import L from "leaflet";
-import { getButtonStyle, mapStyles } from "./map.style";
+import { getButtonStyle, getCardStyle, mapStyles } from "./map.style";
 import type {
   MapCenterProps,
   MapViewProps,
@@ -182,7 +182,7 @@ const MapView = ({
               {locations.map((location) => (
                 <article
                   key={location.id}
-                  style={mapStyles.card}
+                  style={getCardStyle(location.id === hoveredLocationId)}
                   onMouseEnter={() => onLocationHover(location.id)}
                   onMouseLeave={() => onLocationHover(null)}
                 >

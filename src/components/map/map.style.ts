@@ -17,6 +17,7 @@ export const mapStyles: Record<
   | "dot"
   | "grid"
   | "card"
+  | "cardActive"
   | "badge"
   | "meta"
   | "button",
@@ -122,19 +123,27 @@ export const mapStyles: Record<
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-    gap: "16px",
-    padding: "20px",
+    columnGap: "15px",
+    rowGap: "50px",
+    padding: "25px",
     background: "#f8fbfe",
   },
   card: {
     display: "flex",
     flexDirection: "column",
+    marginTop: "2px",
+    marginBottom: "2px",
     padding: "18px",
     paddingBottom: "24px",
     borderRadius: "18px",
     border: "1px solid rgba(16, 32, 48, 0.08)",
     background: "#fff",
     minHeight: "100%",
+    transition: "border-color 160ms ease, box-shadow 160ms ease",
+  },
+  cardActive: {
+    border: "1px solid rgba(13, 99, 200, 0.3)",
+    boxShadow: "0 10px 24px rgba(13, 99, 200, 0.12)",
   },
   badge: {
     display: "inline-flex",
@@ -167,6 +176,12 @@ export const mapStyles: Record<
     cursor: "pointer",
     background: "#ffffff",
   },
+};
+
+export const getCardStyle = (isActive: boolean): CSSProperties => {
+  return isActive
+    ? { ...mapStyles.card, ...mapStyles.cardActive }
+    : mapStyles.card;
 };
 
 export const getButtonStyle = (isSelected: boolean): CSSProperties => {
