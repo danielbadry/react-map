@@ -1,17 +1,5 @@
-import type { MutableRefObject } from "react";
-import type { Marker as LeafletMarker } from "leaflet";
-
 export type MapLegendItem = {
   label: string;
-};
-
-export type MapCenterProps = {
-  center: [number, number];
-};
-
-export type MarkerPopupControllerProps = {
-  selectedLocationId: string | null;
-  markerRefs: MutableRefObject<Record<string, LeafletMarker | null>>;
 };
 
 export type MapCategoryFilter = "all" | string;

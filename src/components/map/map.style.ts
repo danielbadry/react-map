@@ -3,7 +3,6 @@ import type { CSSProperties } from "react";
 export const mapStyles: Record<
   | "section"
   | "frame"
-  | "canvas"
   | "state"
   | "summary"
   | "summaryTitle"
@@ -25,10 +24,6 @@ export const mapStyles: Record<
     border: "1px solid rgba(16, 32, 48, 0.08)",
     background: "rgba(255, 255, 255, 0.88)",
     boxShadow: "0 24px 72px rgba(16, 32, 48, 0.12)",
-  },
-  canvas: {
-    width: "100%",
-    height: "480px",
   },
   state: {
     padding: "32px",
