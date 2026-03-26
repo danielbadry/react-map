@@ -5,22 +5,12 @@ export const mapStyles: Record<
   | "frame"
   | "canvas"
   | "state"
-  | "filters"
-  | "field"
-  | "label"
-  | "input"
-  | "select"
   | "summary"
   | "summaryTitle"
   | "legend"
   | "legendItem"
   | "dot"
-  | "grid"
-  | "card"
-  | "cardActive"
-  | "badge"
-  | "meta"
-  | "button",
+  | "grid",
   CSSProperties
 > = {
   section: {
@@ -44,50 +34,6 @@ export const mapStyles: Record<
     padding: "32px",
     fontSize: "1rem",
     color: "#425466",
-  },
-  filters: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))",
-    gap: "16px",
-    padding: "20px",
-    borderTop: "1px solid rgba(16, 32, 48, 0.08)",
-    background: "#fff",
-  },
-  field: {
-    display: "grid",
-    gap: "8px",
-    minWidth: 0,
-  },
-  label: {
-    fontSize: "0.88rem",
-    fontWeight: 600,
-    color: "#425466",
-  },
-  input: {
-    width: "100%",
-    boxSizing: "border-box",
-    minWidth: 0,
-    minHeight: "44px",
-    padding: "0 14px",
-    borderRadius: "12px",
-    border: "1px solid rgba(16, 32, 48, 0.12)",
-    fontSize: "0.95rem",
-    color: "#142230",
-    background: "#f8fbfe",
-    outline: "none",
-  },
-  select: {
-    width: "100%",
-    boxSizing: "border-box",
-    minWidth: 0,
-    minHeight: "44px",
-    padding: "0 14px",
-    borderRadius: "12px",
-    border: "1px solid rgba(16, 32, 48, 0.12)",
-    fontSize: "0.95rem",
-    color: "#142230",
-    background: "#f8fbfe",
-    outline: "none",
   },
   summary: {
     display: "flex",
@@ -128,69 +74,4 @@ export const mapStyles: Record<
     padding: "25px",
     background: "#f8fbfe",
   },
-  card: {
-    display: "flex",
-    flexDirection: "column",
-    marginTop: "2px",
-    marginBottom: "2px",
-    padding: "18px",
-    paddingBottom: "24px",
-    borderRadius: "18px",
-    border: "1px solid rgba(16, 32, 48, 0.08)",
-    background: "#fff",
-    minHeight: "100%",
-    transition: "border-color 160ms ease, box-shadow 160ms ease",
-  },
-  cardActive: {
-    border: "1px solid rgba(13, 99, 200, 0.3)",
-    boxShadow: "0 10px 24px rgba(13, 99, 200, 0.12)",
-  },
-  badge: {
-    display: "inline-flex",
-    padding: "4px 10px",
-    borderRadius: "999px",
-    fontSize: "0.75rem",
-    fontWeight: 700,
-    marginBottom: "12px",
-    color: "#0b3b74",
-    background: "#dcecff",
-  },
-  meta: {
-    margin: "8px 0 0",
-    color: "#425466",
-    fontSize: "0.95rem",
-    lineHeight: 1.5,
-  },
-  button: {
-    marginTop: "auto",
-    marginBottom: "6px",
-    alignSelf: "flex-start",
-    minHeight: "40px",
-    minWidth: "96px",
-    justifyContent: "center",
-    display: "inline-flex",
-    alignItems: "center",
-    padding: "0 14px",
-    borderRadius: "10px",
-    fontWeight: 600,
-    cursor: "pointer",
-    background: "#ffffff",
-  },
-};
-
-export const getCardStyle = (isActive: boolean): CSSProperties => {
-  return isActive
-    ? { ...mapStyles.card, ...mapStyles.cardActive }
-    : mapStyles.card;
-};
-
-export const getButtonStyle = (isSelected: boolean): CSSProperties => {
-  return {
-    ...mapStyles.button,
-    border: isSelected
-      ? "1px solid #0d63c8"
-      : "1px solid rgba(16, 32, 48, 0.12)",
-    background: isSelected ? "#0d63c8" : "#ffffff",
-    color: isSelected ? "#ffffff" : "#142230",
-  };
 };

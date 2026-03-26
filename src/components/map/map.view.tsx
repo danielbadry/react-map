@@ -11,7 +11,9 @@ import L from "leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import { getButtonStyle, getCardStyle, mapStyles } from "./map.style";
+import MapFilters from "../map-filters";
+import MapListItem from "../map-list-item";
+import { mapStyles } from "./map.style";
 import type {
   MapCenterProps,
   MapViewProps,
@@ -152,36 +154,12 @@ const MapView = ({
               ))}
             </MapContainer>
 
-            <div style={mapStyles.filters}>
-              <label style={mapStyles.field}>
-                <span style={mapStyles.label}>Filter by category</span>
-                <select
-                  value={filters.category}
-                  onChange={(event) => onCategoryChange(event.target.value)}
-                  style={mapStyles.select}
-                >
-                  <option value="all">All categories</option>
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      Category {category}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
-              <label style={mapStyles.field}>
-                <span style={mapStyles.label}>Filter by location</span>
-                <input
-                  type="text"
-                  value={filters.locationQuery}
-                  onChange={(event) =>
-                    onLocationQueryChange(event.target.value)
-                  }
-                  placeholder="Search by title, address, or country"
-                  style={mapStyles.input}
-                />
-              </label>
-            </div>
+            <MapFilters
+              filters={filters}
+              categories={categories}
+              onCategoryChange={onCategoryChange}
+              onLocationQueryChange={onLocationQueryChange}
+            />
 
             <div style={mapStyles.summary}>
               <p style={mapStyles.summaryTitle}>
@@ -191,28 +169,14 @@ const MapView = ({
 
             <div style={mapStyles.grid}>
               {locations.map((location) => (
-                <article
+                <MapListItem
                   key={location.id}
-                  style={getCardStyle(location.id === hoveredLocationId)}
-                  onMouseEnter={() => onLocationHover(location.id)}
-                  onMouseLeave={() => onLocationHover(null)}
-                >
-                  <span style={mapStyles.badge}>
-                    Category {location.category}
-                  </span>
-                  <strong>{location.title}</strong>
-                  <p style={mapStyles.meta}>{location.description}</p>
-                  <p style={mapStyles.meta}>
-                    {location.address}, {location.country}
-                  </p>
-                  <button
-                    type="button"
-                    style={getButtonStyle(location.id === selectedLocationId)}
-                    onClick={() => onLocationSelect(location.id)}
-                  >
-                    {location.id === selectedLocationId ? "Selected" : "Select"}
-                  </button>
-                </article>
+                  location={location}
+                  isHovered={location.id === hoveredLocationId}
+                  isSelected={location.id === selectedLocationId}
+                  onLocationHover={onLocationHover}
+                  onLocationSelect={onLocationSelect}
+                />
               ))}
             </div>
 

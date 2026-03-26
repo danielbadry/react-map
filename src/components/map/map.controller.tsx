@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useMap } from "./hooks/use-map.hook";
 import { filterLocations, getCategories, getMapCenter } from "./map.helper";
 import type { MapFilters } from "./map.type";
@@ -39,27 +39,27 @@ const MapController = () => {
     }
   }, [filteredLocations, hoveredLocationId, selectedLocationId]);
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = useCallback((category: string) => {
     setFilters((currentFilters) => ({
       ...currentFilters,
       category,
     }));
-  };
+  }, []);
 
-  const handleLocationQueryChange = (value: string) => {
+  const handleLocationQueryChange = useCallback((value: string) => {
     setFilters((currentFilters) => ({
       ...currentFilters,
       locationQuery: value,
     }));
-  };
+  }, []);
 
-  const handleLocationHover = (locationId: string | null) => {
+  const handleLocationHover = useCallback((locationId: string | null) => {
     setHoveredLocationId(locationId);
-  };
+  }, []);
 
-  const handleLocationSelect = (locationId: string) => {
+  const handleLocationSelect = useCallback((locationId: string) => {
     setSelectedLocationId(locationId);
-  };
+  }, []);
 
   const selectedLocation =
     filteredLocations.find((location) => location.id === selectedLocationId) ??
